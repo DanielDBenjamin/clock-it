@@ -10,6 +10,8 @@ pub fn Statistics() -> impl IntoView {
                 <StatTile value="315" label="Total Students"/>
                 <StatTile value="12" label="Classes This Week"/>
                 <StatTile value="24h" label="Teaching Hours"/>
+                <StatTile value="Daily" label="4 Hours"/>
+
             </div>
         </section>
     }

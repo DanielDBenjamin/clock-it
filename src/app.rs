@@ -5,7 +5,10 @@ use leptos_router::{
     components::{Route, Router, Routes},
     hooks::use_location,
 };
-use crate::routes::{Error, HomePage, Login, Statistics, Timetable, About, Register, ClassesPage, NewClass, NewModule};
+mod components;
+use components::qr_scanner::QrScannerView;
+
+use crate::routes::{Error, HomePage, Login, Statistics, About, Register, ClassesPage, NewClass, NewModule};
 use crate::components::{NavBar, TopBar};
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
@@ -79,5 +82,15 @@ fn AppShell() -> impl IntoView {
                 </footer>
             </Show>
         </div>
+    }
+}
+
+#[component]
+fn App() -> impl IntoView {
+    view! {
+        <main>
+            <h1>"Attendance App"</h1>
+            <QrScannerView />
+        </main>
     }
 }
