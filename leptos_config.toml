@@ -1,0 +1,6 @@
+name = "clock_it"
+output_name = "clock_it"
+site_root = "site"
+site_pkg_dir = "pkg"
+assets_dir = "assets"
+style_file = "style/main.css"

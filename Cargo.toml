@@ -16,7 +16,7 @@ leptos_meta = { version = "0.8.0" }
 tokio = { version = "1", features = ["rt-multi-thread"], optional = true }
 wasm-bindgen = { version = "=0.2.103", optional = true }
 chrono = "0.4.42"
-leptos_qr_scanner = "0.1"
+leptos-qr-scanner = "0.1"
 
 [features]
 hydrate = [

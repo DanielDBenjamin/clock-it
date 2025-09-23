@@ -5,10 +5,8 @@ use leptos_router::{
     components::{Route, Router, Routes},
     hooks::use_location,
 };
-mod components;
-use components::qr_scanner::QrScannerView;
 
-use crate::routes::{Error, HomePage, Login, Statistics, About, Register, ClassesPage, NewClass, NewModule};
+use crate::routes::{Error, HomePage, Login, Statistics, About, Register, ClassesPage, NewClass, NewModule,QrScannerView};
 use crate::components::{NavBar, TopBar};
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
@@ -47,7 +45,6 @@ fn AppShell() -> impl IntoView {
     let show_sidebar = Signal::derive(move || {
         let path = location.pathname.get();
         path.starts_with("/home")
-            || path.starts_with("/timetable")
             || path.starts_with("/statistics")
             || path.starts_with("/about")
             || path.starts_with("/classes")
@@ -71,9 +68,11 @@ fn AppShell() -> impl IntoView {
                     <Route path=StaticSegment("classes") view=ClassesPage/>
                     <Route path=(StaticSegment("classes"), StaticSegment("new")) view=NewClass/>
                     <Route path=(StaticSegment("modules"), StaticSegment("new")) view=NewModule/>
-                    <Route path=StaticSegment("timetable") view=Timetable/>
                     <Route path=StaticSegment("statistics") view=Statistics/>
                     <Route path=StaticSegment("about") view=About/>
+                    <Route path=StaticSegment("testing") view=QrScannerView/>
+
+            
                 </Routes>
             </main>
             <Show when=move || show_footer.get()>
@@ -85,12 +84,3 @@ fn AppShell() -> impl IntoView {
     }
 }
 
-#[component]
-fn App() -> impl IntoView {
-    view! {
-        <main>
-            <h1>"Attendance App"</h1>
-            <QrScannerView />
-        </main>
-    }
-}
